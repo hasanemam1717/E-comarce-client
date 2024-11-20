@@ -5,10 +5,10 @@ import Footer from "../Components/Footer";
 const MainLayouts = () => {
   return (
     <div>
-      <div>
+      <div className="lg:mx-14 lg:mt-2">
         <Navbar></Navbar>
       </div>
-      <div className="min-h-screen">
+      <div className="min-h-screen container mx-auto">
         <Outlet></Outlet>
       </div>
      <div>
