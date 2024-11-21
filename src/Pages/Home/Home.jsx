@@ -1,5 +1,7 @@
 import Dividar from "../../Components/Dividar";
 import HeroSection from "../../Components/HeroSection";
+import Categories from "../Categories/Categories";
+import Contact from "../Contact/Contact";
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 
 const Home = () => {
@@ -8,6 +10,10 @@ const Home = () => {
     <HeroSection></HeroSection>
     <Dividar title={"Featured Products"} subTitle={"Highlights the most popular or new products."}></Dividar>
     <FeaturedProducts></FeaturedProducts>
+    <Dividar title={"Category"} subTitle={"Organizes products into categories for easy browsing."}></Dividar>
+    <Categories></Categories>
+    <Dividar title={"Contact us"} subTitle={" "}></Dividar>
+    <Contact></Contact>
     <h1>This is a home page</h1>
     <h1>Banner</h1>
     <h1>Hero</h1>
