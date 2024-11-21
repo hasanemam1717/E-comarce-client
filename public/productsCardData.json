@@ -1,0 +1,87 @@
+[
+    {
+      "title": "Wireless Headphones",
+      "description": "Experience high-quality sound with our wireless headphones. Featuring noise cancellation, long battery life, and a comfortable fit.",
+      "price": "$129.99",
+      "inStock": true,
+      "imageURL": "https://img.freepik.com/free-photo/glowing-light-bulb-fuels-ideas-innovation-generated-by-ai_188544-15498.jpg?t=st=1732201071~exp=1732204671~hmac=75848e75a197ab4e2622baf7d92bb1501e36cc913c092e5787a6f568af500ff9&w=1380"
+    },
+    {
+      "title": "Smartphone Stand",
+      "description": "Keep your phone upright with this durable and adjustable smartphone stand, perfect for hands-free usage.",
+      "price": "$19.99",
+      "inStock": true,
+      "imageURL": "https://img.freepik.com/free-photo/close-up-body-butter-recipient_23-2148543044.jpg?t=st=1732201187~exp=1732204787~hmac=fc78985fde9771a03c69d3e951b3b7fc3bc184c39b4856abf906ed1abf5613a3&w=740"
+    },
+    {
+      "title": "Bluetooth Speaker",
+      "description": "Portable Bluetooth speaker with rich bass, waterproof design, and 10-hour battery life for music on the go.",
+      "price": "$59.99",
+      "inStock": true,
+      "imageURL": "https://img.freepik.com/free-photo/3d-beauty-product-studio_23-2151401442.jpg?t=st=1732201198~exp=1732204798~hmac=fc4a954a9de123a0ff972c4cd200ed0ba06d6b109193dfed517ffff611146fec&w=1380"
+    },
+    {
+      "title": "Fitness Tracker",
+      "description": "Track your health metrics with a fitness tracker featuring heart rate monitoring and step counting.",
+      "price": "$79.99",
+      "inStock": false,
+      "imageURL": "https://img.freepik.com/free-photo/still-life-wireless-cyberpunk-headphones_23-2151072234.jpg?t=st=1732201212~exp=1732204812~hmac=2cf07e530164e38b70a11451f161befd7f52270df059e8c2eaf8ec286c72c615&w=740"
+    },
+    {
+      "title": "Gaming Keyboard",
+      "description": "RGB mechanical gaming keyboard with customizable keys for an immersive gaming experience.",
+      "price": "$99.99",
+      "inStock": true,
+     "imageURL": "https://img.freepik.com/free-photo/close-up-body-butter-recipient_23-2148543044.jpg?t=st=1732201187~exp=1732204787~hmac=fc78985fde9771a03c69d3e951b3b7fc3bc184c39b4856abf906ed1abf5613a3&w=740"
+    },
+    {
+      "title": "Noise-Cancelling Earbuds",
+      "description": "Compact noise-cancelling earbuds with superior sound quality and up to 6 hours of battery life.",
+      "price": "$89.99",
+      "inStock": true,
+      "imageURL": "https://img.freepik.com/free-photo/3d-beauty-product-studio_23-2151401442.jpg?t=st=1732201198~exp=1732204798~hmac=fc4a954a9de123a0ff972c4cd200ed0ba06d6b109193dfed517ffff611146fec&w=1380"
+    },
+    {
+      "title": "USB-C Charger",
+      "description": "Fast-charging USB-C charger with multiple ports, compatible with most modern devices.",
+      "price": "$29.99",
+      "inStock": true,
+      "imageURL": "https://img.freepik.com/free-photo/close-up-body-butter-recipient_23-2148543044.jpg?t=st=1732201187~exp=1732204787~hmac=fc78985fde9771a03c69d3e951b3b7fc3bc184c39b4856abf906ed1abf5613a3&w=740"
+    },
+    {
+      "title": "Laptop Sleeve",
+      "description": "Protect your laptop with this stylish and durable sleeve, available in multiple sizes.",
+      "price": "$34.99",
+      "inStock": true,
+      "imageURL": "https://img.freepik.com/free-photo/3d-beauty-product-studio_23-2151401442.jpg?t=st=1732201198~exp=1732204798~hmac=fc4a954a9de123a0ff972c4cd200ed0ba06d6b109193dfed517ffff611146fec&w=1380"
+    },
+    {
+      "title": "Smart LED Light Bulb",
+      "description": "Wi-Fi-enabled LED light bulb with adjustable brightness and color temperature for personalized lighting.",
+      "price": "$15.99",
+      "inStock": true,
+      "imageURL": "https://img.freepik.com/free-photo/close-up-body-butter-recipient_23-2148543044.jpg?t=st=1732201187~exp=1732204787~hmac=fc78985fde9771a03c69d3e951b3b7fc3bc184c39b4856abf906ed1abf5613a3&w=740"
+    },
+    {
+      "title": "Ergonomic Office Chair",
+      "description": "Comfortable ergonomic office chair with adjustable lumbar support and breathable mesh back.",
+      "price": "$199.99",
+      "inStock": true,
+     "imageURL": "https://img.freepik.com/free-photo/3d-beauty-product-studio_23-2151401442.jpg?t=st=1732201198~exp=1732204798~hmac=fc4a954a9de123a0ff972c4cd200ed0ba06d6b109193dfed517ffff611146fec&w=1380"
+    },
+    {
+      "title": "4K Action Camera",
+      "description": "Capture your adventures in stunning 4K with this durable, waterproof action camera.",
+      "price": "$149.99",
+      "inStock": false,
+      "imageURL": "https://img.freepik.com/free-photo/close-up-body-butter-recipient_23-2148543044.jpg?t=st=1732201187~exp=1732204787~hmac=fc78985fde9771a03c69d3e951b3b7fc3bc184c39b4856abf906ed1abf5613a3&w=740"
+    },
+    {
+      "title": "Portable Power Bank",
+      "description": "High-capacity portable power bank with fast charging for all your devices on the go.",
+      "price": "$49.99",
+      "inStock": true,
+      "imageURL": "https://img.freepik.com/free-photo/3d-beauty-product-studio_23-2151401442.jpg?t=st=1732201198~exp=1732204798~hmac=fc4a954a9de123a0ff972c4cd200ed0ba06d6b109193dfed517ffff611146fec&w=1380"
+    }
+  ]
+  

@@ -2,6 +2,7 @@ import { RiMenu3Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import Dropdown from "./Dropdown";
+import { CiShoppingCart } from "react-icons/ci";
 
 const Navbar = () => {
   const { user } = useAuth();
@@ -19,6 +20,8 @@ const Navbar = () => {
           >
             <NavLink className=" font-semibold " to="/">
               Home
+            </NavLink><NavLink className=" font-semibold " to="/about">
+              About
             </NavLink>
             <li>
               <h1 className="text-xl font-bold">Pages</h1>
@@ -48,6 +51,9 @@ const Navbar = () => {
           <NavLink className="text-xl font-semibold " to="/">
             Home
           </NavLink>
+          <NavLink className="text-xl font-semibold " to="/about">
+            About
+          </NavLink>
           <NavLink className="text-xl font-semibold " to="/featuredProducts">
             Featured Products
           </NavLink>
@@ -60,13 +66,22 @@ const Navbar = () => {
           <NavLink className="text-xl font-semibold " to="/contact">
             Contact
           </NavLink>
+          <NavLink className="text-xl font-semibold ">
+            <div className="indicator">
+              <span className="indicator-item badge mb-4 badge-secondary">
+                99+
+              </span>
+              <CiShoppingCart className="h-14 w-10" />
+            </div>
+          </NavLink>
         </ul>
       </div>
       <div></div>
       <div className="navbar-end">
-     
         {user ? (
-          <div><Dropdown></Dropdown> </div>
+          <div>
+            <Dropdown></Dropdown>{" "}
+          </div>
         ) : (
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 p-4">
             {/* Login Button */}
