@@ -1,19 +1,43 @@
 import Swal from "sweetalert2";
 import useAuth from "../Hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 
 /* eslint-disable react/prop-types */
 const ProductCard = ({ product }) => {
-  const { title, imageURL, inStock, price, description } = product;
+  const { title, imageURL, inStock, price, description ,_id} = product;
   const { user } = useAuth();
   const navigate = useNavigate()
+  const location = useLocation()
+  const axiouSecure = useAxiosSecure()
  
 
   console.log( user?.email);
   const handleAddToCart = product =>{
     if(user && user?.email){
-      console.log("email ase");
+      console.log("email ase",product);
+      const cartItem = {
+        menuId:_id,
+        email:user?.email,
+        title,
+        imageURL,
+        inStock,
+        price,
+        description
+      }
+      axiouSecure.post('/carts' ,cartItem)
+      .then(res =>{
+        if(res.data.insertedId){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `${title} added to the card`,
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      })
     }
     else{
       Swal.fire({
@@ -26,7 +50,7 @@ const ProductCard = ({ product }) => {
         confirmButtonText: "Yes,logIn"
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/logIn')
+          navigate('/logIn',{state:{from:location}})
         }
       });
     }
@@ -51,7 +75,7 @@ const ProductCard = ({ product }) => {
           <div className="mt-4 flex justify-between items-center">
             <span className="text-xl font-bold text-blue-600">${price}</span>
             <button
-              onClick={() => handleAddToCart()}
+              onClick={() => handleAddToCart(product)}
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
             >
               Add to Cart

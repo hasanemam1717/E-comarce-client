@@ -3,10 +3,12 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import Dropdown from "./Dropdown";
 import { CiShoppingCart } from "react-icons/ci";
+import useCart from "../Hooks/useCart";
 
 const Navbar = () => {
   const { user } = useAuth();
   // console.log(user);
+  const [cart] = useCart()
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -69,7 +71,7 @@ const Navbar = () => {
           <NavLink to="/wishlist" className="text-xl font-semibold ">
             <div className="indicator">
               <span className="indicator-item badge mb-4 badge-secondary">
-                99+
+                {cart.length}
               </span>
               <CiShoppingCart className="h-14 w-10" />
             </div>
