@@ -1,40 +1,19 @@
 import { useState } from "react";
 import { FaCartPlus, FaTrashAlt } from "react-icons/fa";
+import useCart from "../Hooks/useCart";
 
 const Wishlist = () => {
+    const [cart] = useCart()
   const [role, setRole] = useState("buyer"); // Change to "seller" or "admin" to test role-based restrictions
-  const wishlistItems = [
-    {
-      id: 1,
-      title: "Wireless Headphones",
-      price: "$129.99",
-      description: "Experience high-quality sound with noise cancellation.",
-      imageURL: "https://via.placeholder.com/150",
-    },
-    {
-      id: 2,
-      title: "Smart Watch",
-      price: "$99.99",
-      description: "Track your fitness and health with style.",
-      imageURL: "https://via.placeholder.com/150",
-    },
-    {
-      id: 3,
-      title: "Bluetooth Speaker",
-      price: "$49.99",
-      description: "Compact speaker with rich sound and portability.",
-      imageURL: "https://via.placeholder.com/150",
-    },
-  ];
-
+ 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8">My Wishlist</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {wishlistItems.map((item) => (
+          {cart.map((item) => (
             <div
-              key={item.id}
+              key={item._id}
               className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transform transition-transform hover:scale-105"
             >
               <img
