@@ -5,19 +5,27 @@ import Contact from "../Contact/Contact";
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 
 const Home = () => {
-  return <div>
-    {/* This is  hero section components */}
-    <HeroSection></HeroSection>
-    <Dividar title={"Featured Products"} subTitle={"Highlights the most popular or new products."}></Dividar>
-    <FeaturedProducts></FeaturedProducts>
-    <Dividar title={"Category"} subTitle={"Organizes products into categories for easy browsing."}></Dividar>
-    <Categories></Categories>
-    <Dividar title={"Contact us"} subTitle={" "}></Dividar>
-    <Contact></Contact>
-    <h1>This is a home page</h1>
-    <h1>Banner</h1>
-    <h1>Hero</h1>
-  </div>;
+  return (
+    <div>
+      {/* This is  hero section components */}
+      <HeroSection></HeroSection>
+      <Dividar
+        title={"Featured Products"}
+        subTitle={"Highlights the most popular or new products."}
+      ></Dividar>
+      <FeaturedProducts></FeaturedProducts>
+      <Dividar
+        title={"Category"}
+        subTitle={"Organizes products into categories for easy browsing."}
+      ></Dividar>
+      <Categories></Categories>
+      <Dividar title={"Contact us"} subTitle={" "}></Dividar>
+      <Contact></Contact>
+      <h1>This is a home page</h1>
+      <h1>Banner</h1>
+      <h1>Hero</h1>
+    </div>
+  );
 };
 
 export default Home;

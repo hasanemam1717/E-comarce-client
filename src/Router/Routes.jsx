@@ -5,6 +5,8 @@ import Testimonial from "../Pages/Testimonials/Testimonial";
 import FeaturedProducts from "../Pages/FeaturedProducts/FeaturedProducts";
 import Categories from "../Pages/Categories/Categories";
 import Contact from "../Pages/Contact/Contact";
+import Register from "../Pages/Authentication/Register";
+import LogIn from "../Pages/Authentication/LogIn";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +19,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/testimonials",
-        element:<Testimonial></Testimonial>,
+        element: <Testimonial></Testimonial>,
       },
       {
         path: "/featuredProducts",
@@ -32,8 +34,12 @@ export const router = createBrowserRouter([
         element: <Contact></Contact>,
       },
       {
-        path: "/",
-        element: <Home></Home>,
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/logIn",
+        element: <LogIn></LogIn>,
       },
     ],
   },
