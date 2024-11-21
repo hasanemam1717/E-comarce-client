@@ -1,13 +1,28 @@
-import { NavLink } from "react-router-dom";
+
+import useAuth from "../../Hooks/useAuth";
+import { useForm } from "react-hook-form";
 
 const RegisterPage = () => {
+  const { createUser } = useAuth();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  console.log(createUser);
+
+
+  const onSubmit =(data)=>{
+    console.log("On submit clecked",data);
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-center text-2xl font-bold text-gray-900">
           Create an Account
         </h2>
-        <form className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Name Field */}
           <div>
             <label
@@ -21,8 +36,11 @@ const RegisterPage = () => {
               id="name"
               placeholder="Enter your name"
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-gray-900"
-              required
+              {...register("name", { required: true })}
             />
+            {errors?.name && (
+              <p className="text-xs font-thin text-red-600">Name is required</p>
+            )}
           </div>
 
           {/* Email Field */}
@@ -38,8 +56,11 @@ const RegisterPage = () => {
               id="email"
               placeholder="Enter your email"
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-gray-900"
-              required
+              {...register("email", { required: true })}
             />
+            {errors?.email && (
+              <p className="text-xs font-thin text-red-600">Email is required</p>
+            )}
           </div>
 
           {/* Password Field */}
@@ -55,8 +76,14 @@ const RegisterPage = () => {
               id="password"
               placeholder="Create a password"
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-gray-900"
-              required
+              {...register("password", { required: true, minLength: 8 })}
             />
+            {errors?.password?.type === "required" && (
+              <p className="text-xs font-thin text-red-600">Password is required</p>
+            )}
+             {errors?.password?.type === "minLength" && (
+              <p className="text-xs font-thin text-red-600">Password  must have atleast 8 charectars.</p>
+            )}
           </div>
 
           {/* Confirm Password Field */}
@@ -72,19 +99,27 @@ const RegisterPage = () => {
               id="confirm-password"
               placeholder="Confirm your password"
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-gray-900"
-              required
+              {...register("conPass",{required:true,validate:(value)=>{
+                if(watch('password') != value) {
+                    return "Your password don't match.Please enter right password."
+                }
+              }})}
             />
+            {
+                errors?.conPass && (
+                    <p className="text-xs font-thin text-red-600">Both password much matched.</p>
+                  )
+            }
           </div>
 
           {/* Submit Button */}
           <div>
-            <NavLink
-              to="/logIn"
+            <button
               type="submit"
               className="w-full flex justify-center py-2 px-4 text-sm font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
             >
-              Log In
-            </NavLink>
+             Register
+            </button>
           </div>
         </form>
 
