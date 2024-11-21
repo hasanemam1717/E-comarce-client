@@ -6,7 +6,7 @@ import { CiShoppingCart } from "react-icons/ci";
 
 const Navbar = () => {
   const { user } = useAuth();
-  console.log(user);
+  // console.log(user);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -66,7 +66,7 @@ const Navbar = () => {
           <NavLink className="text-xl font-semibold " to="/contact">
             Contact
           </NavLink>
-          <NavLink className="text-xl font-semibold ">
+          <NavLink to="/wishlist" className="text-xl font-semibold ">
             <div className="indicator">
               <span className="indicator-item badge mb-4 badge-secondary">
                 99+

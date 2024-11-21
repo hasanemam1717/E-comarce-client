@@ -1,9 +1,35 @@
+import Swal from "sweetalert2";
+import useAuth from "../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+
+
 /* eslint-disable react/prop-types */
 const ProductCard = ({ product }) => {
   const { title, imageURL, inStock, price, description } = product;
-  console.log(product);
+  const { user } = useAuth();
+  const navigate = useNavigate()
+ 
+
+  console.log( user?.email);
   const handleAddToCart = product =>{
-    console.log("Add to cart cliced");
+    if(user && user?.email){
+      console.log("email ase");
+    }
+    else{
+      Swal.fire({
+        title: "You are not logged in!",
+        text: "Please log in to the add to the card",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes,logIn"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/logIn')
+        }
+      });
+    }
   }
   return (
     <div className="container mx-auto p-4 lg:p-8 ">
