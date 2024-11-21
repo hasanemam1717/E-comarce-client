@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
   const [,refetch] = useCart()
  
 
-  console.log( user?.email);
+  // console.log( user?.email);
   const handleAddToCart = () =>{
     if(user && user?.email){
       const cartItem = {

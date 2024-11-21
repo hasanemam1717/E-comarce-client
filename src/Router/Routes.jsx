@@ -9,6 +9,10 @@ import Register from "../Pages/Authentication/Register";
 import LogIn from "../Pages/Authentication/LogIn";
 import About from "../Pages/About/About";
 import Wishlist from "../Components/Wishlist";
+import Dashboard from "../Dashboard/Dashboard";
+import DashCart from "../Dashboard/DashCart";
+import AllUser from "../Components/DashboardComponent/Seller/AllUser";
+import ManageUser from "../Dashboard/ManageUser";
 
 export const router = createBrowserRouter([
   {
@@ -46,9 +50,28 @@ export const router = createBrowserRouter([
       {
         path: "/logIn",
         element: <LogIn></LogIn>,
-      },{
+      },
+      {
         path: "/wishlist",
         element: <Wishlist></Wishlist>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "/dashboard/cart",
+        element: <DashCart></DashCart>,
+      },
+      {
+        path: "/dashboard/allusers",
+        element: <AllUser></AllUser>,
+      },
+      {
+        path: "/dashboard/manageuser",
+        element: <ManageUser></ManageUser>,
       },
     ],
   },

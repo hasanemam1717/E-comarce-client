@@ -3,6 +3,7 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import useAuth from "../Hooks/useAuth";
 import { getAuth } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
+import { Link } from "react-router-dom";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,13 +39,13 @@ const Dropdown = () => {
         >
           <div className="py-1" role="none">
             {/* Dashboard Button */}
-            <a
-              href="/dashboard"
+            <Link
+              to="/dashboard"
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-indigo-500 hover:text-white transition duration-200 ease-in-out"
               role="menuitem"
             >
               Dashboard
-            </a>
+            </Link>
 
             {/* Logout Button */}
             <button

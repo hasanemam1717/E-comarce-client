@@ -1,6 +1,7 @@
 import { FaGoogle } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const GoogleLogIn = () => {
@@ -8,8 +9,18 @@ const GoogleLogIn = () => {
     const navigate = useNavigate()
     const handleGoogleLogIn = ()=>{
         googleLogIn()
-        .then(()=>{
-            navigate('/')
+        .then((res)=>{
+            console.log(res.user.displayName)
+            const userInfo = {
+                email:res?.user?.email,
+                name:res?.user?.displayName
+            }
+            axios.post('http://localhost:5000/users',userInfo)
+            .then(res =>{
+                console.log(res.data);
+                navigate('/')
+            })
+            
         })
     }
     return (
