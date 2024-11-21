@@ -8,12 +8,12 @@ import {
   signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import app from "../Firebase/Firebase.config";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
+import { GoogleAuthProvider } from "firebase/auth";
+import app from '../Firebase/Firebase.config.js'
 
 export const AuthContext = createContext(null);
 
-const Auth = getAuth(app);
+const auth = getAuth(app);
 
 const AuthProvidar = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -21,24 +21,24 @@ const AuthProvidar = ({ children }) => {
   // google
   const googleProvider = new GoogleAuthProvider();
   const googleLogIn = () => {
-    return signInWithPopup(Auth, googleProvider);
+    return signInWithPopup(auth, googleProvider);
   };
   // Email and password
   const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(Auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // sign in
   const logIn = (email, password) => {
-    return signInWithEmailAndPassword(Auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   };
   // sign up
   const logOut = () => {
-    return signOut(Auth);
+    return signOut(auth);
   };
 
   useEffect(() => {
-    const unsbscribe = onAuthStateChanged(Auth, (currentUser) => {
+    const unsbscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });

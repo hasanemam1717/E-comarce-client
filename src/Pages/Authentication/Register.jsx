@@ -1,4 +1,5 @@
 
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 
@@ -10,11 +11,24 @@ const RegisterPage = () => {
     watch,
     formState: { errors },
   } = useForm();
-  console.log(createUser);
 
+
+  const navigate = useNavigate()
 
   const onSubmit =(data)=>{
-    console.log("On submit clecked",data);
+    const email =data.email
+    const password =data.password
+    createUser(email,password)
+    .then((userCredential) => {
+      // Signed in with email and pass
+      const user = userCredential.data;
+      console.log(user);
+      navigate('/')
+    })
+
+    
+    
+    // console.log(email,password);
   }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">

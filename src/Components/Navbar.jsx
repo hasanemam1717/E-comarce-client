@@ -1,8 +1,11 @@
 import { RiMenu3Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
-// import Dropdown from "./Dropdown";
+import useAuth from "../Hooks/useAuth";
+import Dropdown from "./Dropdown";
 
 const Navbar = () => {
+  const { user } = useAuth();
+  console.log(user);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -59,19 +62,30 @@ const Navbar = () => {
           </NavLink>
         </ul>
       </div>
+      <div></div>
       <div className="navbar-end">
-        {/* <Dropdown></Dropdown> */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 p-4">
-          {/* Login Button */}
-          <NavLink to="/logIn" className="px-6 py-3 bg-orange-600 text-white text-sm font-medium rounded-lg shadow-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 w-full sm:w-auto">
-            Log In
-          </NavLink>
+     
+        {user ? (
+          <div><Dropdown></Dropdown> </div>
+        ) : (
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 p-4">
+            {/* Login Button */}
+            <NavLink
+              to="/logIn"
+              className="px-6 py-3 bg-orange-600 text-white text-sm font-medium rounded-lg shadow-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 w-full sm:w-auto"
+            >
+              Log In
+            </NavLink>
 
-          {/* Register Button */}
-          <NavLink to="/register" className="px-6 py-3 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg shadow-md hover:bg-gray-200 focus:ring-2 focus:ring-gray-300 focus:outline-none transition duration-200 w-full sm:w-auto">
-            Register
-          </NavLink>
-        </div>
+            {/* Register Button */}
+            <NavLink
+              to="/register"
+              className="px-6 py-3 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg shadow-md hover:bg-gray-200 focus:ring-2 focus:ring-gray-300 focus:outline-none transition duration-200 w-full sm:w-auto"
+            >
+              Register
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );

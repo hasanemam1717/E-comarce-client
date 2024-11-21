@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { IoIosArrowDropdown } from "react-icons/io";
+import useAuth from "../Hooks/useAuth";
+import { getAuth } from "firebase/auth";
+import app from "../Firebase/Firebase.config";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {logOut} = useAuth();
+  const auth = getAuth(app)
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const handleLogout = () => {
-    console.log("Logging out...");
-    // Add your logout functionality here
+    logOut(auth)
   };
 
   return (
