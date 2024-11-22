@@ -19,14 +19,13 @@ const RegisterPage = () => {
     const name = data.name;
     const password = data.password;
     const role = data.role
-    createUser(email, password).then((res) => {
-      console.log(res.user.displayName);
+    createUser(email, password).then(() => {
       const userInfo = {
         name,
         email,
         role
       }
-      axios.post('https://e-comarce-server-five.vercel.app/users',userInfo)
+      axios.post('http://localhost:5000/users',userInfo)
       .then(res =>{
           console.log(res.data);
           navigate('/')

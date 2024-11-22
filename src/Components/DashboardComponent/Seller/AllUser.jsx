@@ -11,7 +11,7 @@ const AllUser = () => {
     queryFn: async () => {
       const res = await axiosSecure.get(`/users`,{
         headers:{
-          Authorization:`Bearer${localStorage.getItem('access-token')}`
+          authorization:` Bearer${localStorage.getItem('access-token')}`
         }
       });
       return res.data;
@@ -71,16 +71,16 @@ const AllUser = () => {
           <th>Delete</th>
         </tr>
         {users.map((user) => (
-          
           <tr
             key={user._id}
             className="hover  h-10  items-center border-t border-2 border-orange-300 shadow-md rounded "
           >
             <td className="">{user?.name}</td>
+            <td className="">{user?.role}</td>
             <td>{user?.email}</td>
             <td>
              {
-              user.role === 'admin' ?'Admin' : <button className="bg-orange-500 flex items-center justify-center rounded text-white w-8 lg:w-10 lg:h-10" onClick={()=>handleMakeAdmin(user._id)}>
+              user?.role === 'admin' ? 'Admin'  : <button className="bg-orange-500 flex items-center justify-center rounded text-white w-8 lg:w-10 lg:h-10" onClick={()=>handleMakeAdmin(user._id)}>
               <GrUserAdmin />
             </button>
              }

@@ -63,7 +63,7 @@ const AuthProvidar = ({ children }) => {
     () => {
       return unsbscribe();
     };
-  }, []);
+  }, [axiosPublic]);
 
   const authInformation = {
     createUser,

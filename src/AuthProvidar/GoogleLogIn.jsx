@@ -10,13 +10,12 @@ const GoogleLogIn = () => {
     const handleGoogleLogIn = ()=>{
         googleLogIn()
         .then((res)=>{
-            console.log(res.user.displayName)
             const userInfo = {
                 email:res?.user?.email,
                 name:res?.user?.displayName,
                 role:"buyer"
             }
-            axios.post('https://e-comarce-server-five.vercel.app/users',userInfo)
+            axios.post('http://localhost:5000/users',userInfo)
             .then(res =>{
                 console.log(res.data);
                 navigate('/')

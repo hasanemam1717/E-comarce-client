@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-    baseURL: 'https://e-comarce-server-five.vercel.app'
+    baseURL: 'http://localhost:5000'
 })
 
 const useAxiosPublic = () => {
