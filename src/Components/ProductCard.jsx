@@ -77,7 +77,7 @@ const ProductCard = ({ product }) => {
           <h2 className="text-lg font-bold text-gray-800 truncate">{title}</h2>
           <p className="mt-2 text-gray-600 text-sm">{description}</p>
           <div className="mt-4 flex justify-between items-center">
-            <span className="text-xl font-bold text-blue-600">${price}</span>
+            <span className="text-xl font-bold text-blue-600"> <span className="text-yellow-500">$</span> {price}</span>
             <button
               onClick={handleAddToCart}
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
