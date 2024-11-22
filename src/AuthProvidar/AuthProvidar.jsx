@@ -25,7 +25,7 @@ const AuthProvidar = ({ children }) => {
   };
   // Email and password
   const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password)
   };
 
   // sign in
@@ -34,7 +34,9 @@ const AuthProvidar = ({ children }) => {
   };
   // sign up
   const logOut = () => {
-    return signOut(auth);
+    return signOut(auth).then((res)=>{
+      console.log(res.data);
+    })
   };
 
   useEffect(() => {

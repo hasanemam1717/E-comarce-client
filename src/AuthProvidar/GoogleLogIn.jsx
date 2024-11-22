@@ -13,7 +13,8 @@ const GoogleLogIn = () => {
             console.log(res.user.displayName)
             const userInfo = {
                 email:res?.user?.email,
-                name:res?.user?.displayName
+                name:res?.user?.displayName,
+                role:"buyer"
             }
             axios.post('http://localhost:5000/users',userInfo)
             .then(res =>{

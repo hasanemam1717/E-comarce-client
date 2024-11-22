@@ -1,7 +1,7 @@
-
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const RegisterPage = () => {
   const { createUser } = useAuth();
@@ -12,24 +12,29 @@ const RegisterPage = () => {
     formState: { errors },
   } = useForm();
 
-
   const navigate = useNavigate()
 
-  const onSubmit =(data)=>{
-    const email =data.email
-    const password =data.password
-    createUser(email,password)
-    .then((userCredential) => {
-      // Signed in with email and pass
-      const user = userCredential.data;
-      console.log(user);
-      navigate('/')
-    })
+  const onSubmit = (data) => {
+    const email = data.email;
+    const name = data.name;
+    const password = data.password;
+    const role = data.role
+    createUser(email, password).then((res) => {
+      console.log(res.user.displayName);
+      const userInfo = {
+        name,
+        email,
+        role
+      }
+      axios.post('http://localhost:5000/users',userInfo)
+      .then(res =>{
+          console.log(res.data);
+          navigate('/')
+      })
+    });
 
-    
-    
-    // console.log(email,password);
-  }
+    console.log(email,password,role);
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg">
@@ -73,7 +78,28 @@ const RegisterPage = () => {
               {...register("email", { required: true })}
             />
             {errors?.email && (
-              <p className="text-xs font-thin text-red-600">Email is required</p>
+              <p className="text-xs font-thin text-red-600">
+                Email is required
+              </p>
+            )}
+          </div>
+          {/* role field */}
+          <div >
+            <label  className="block text-sm font-medium text-gray-700">
+              <span className="label-text">Role</span>
+            </label>
+            <select
+              className="select select-bordered w-full max-w-xs"
+              {...register("role", { required: true })}
+            >
+              <option value="buyer">Buyer</option>
+              <option value="seller">Seller</option>
+              <option value="admin">Admin</option>
+            </select>
+            {errors.role && (
+              <p className="text-red-400 font-thin text-sm ">
+                You must select your role
+              </p>
             )}
           </div>
 
@@ -93,10 +119,14 @@ const RegisterPage = () => {
               {...register("password", { required: true, minLength: 8 })}
             />
             {errors?.password?.type === "required" && (
-              <p className="text-xs font-thin text-red-600">Password is required</p>
+              <p className="text-xs font-thin text-red-600">
+                Password is required
+              </p>
             )}
-             {errors?.password?.type === "minLength" && (
-              <p className="text-xs font-thin text-red-600">Password  must have atleast 8 charectars.</p>
+            {errors?.password?.type === "minLength" && (
+              <p className="text-xs font-thin text-red-600">
+                Password must have atleast 8 charectars.
+              </p>
             )}
           </div>
 
@@ -113,17 +143,20 @@ const RegisterPage = () => {
               id="confirm-password"
               placeholder="Confirm your password"
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-gray-900"
-              {...register("conPass",{required:true,validate:(value)=>{
-                if(watch('password') != value) {
-                    return "Your password don't match.Please enter right password."
-                }
-              }})}
+              {...register("conPass", {
+                required: true,
+                validate: (value) => {
+                  if (watch("password") != value) {
+                    return "Your password don't match.Please enter right password.";
+                  }
+                },
+              })}
             />
-            {
-                errors?.conPass && (
-                    <p className="text-xs font-thin text-red-600">Both password much matched.</p>
-                  )
-            }
+            {errors?.conPass && (
+              <p className="text-xs font-thin text-red-600">
+                Both password much matched.
+              </p>
+            )}
           </div>
 
           {/* Submit Button */}
@@ -132,7 +165,7 @@ const RegisterPage = () => {
               type="submit"
               className="w-full flex justify-center py-2 px-4 text-sm font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
             >
-             Register
+              Register
             </button>
           </div>
         </form>
