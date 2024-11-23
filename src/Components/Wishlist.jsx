@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaCartPlus, FaTrashAlt } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
 import useCart from "../Hooks/useCart";
 
 const Wishlist = () => {
@@ -23,11 +23,11 @@ const Wishlist = () => {
               />
               <h2 className="text-lg font-semibold mb-2">{item.title}</h2>
               <p className="text-sm text-gray-600 mb-4">{item.description}</p>
-              <p className="text-lg font-bold mb-4">{item.price}</p>
+              <p className="text-lg font-bold mb-4"> {item.price}</p>
               <div className="flex justify-between items-center">
                 {/* Add to Cart Button */}
-                <button
-                  className={`flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition ${
+                <button 
+                  className={`flex items-center px-4 py-2 mb-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition ${
                     role !== "buyer" && "cursor-not-allowed opacity-50"
                   }`}
                   disabled={role !== "buyer"}
@@ -36,16 +36,6 @@ const Wishlist = () => {
                   Add to Cart
                 </button>
 
-                {/* Remove from Wishlist Button */}
-                <button
-                  className={`flex items-center px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition ${
-                    role !== "buyer" && "cursor-not-allowed opacity-50"
-                  }`}
-                  disabled={role !== "buyer"}
-                >
-                  <FaTrashAlt className="mr-2" />
-                  Remove
-                </button>
               </div>
             </div>
           ))}

@@ -15,7 +15,7 @@ const GoogleLogIn = () => {
                 name:res?.user?.displayName,
                 role:"buyer"
             }
-            axios.post('http://localhost:5000/users',userInfo)
+            axios.post('https://e-comarce-server-2wkjsljlr-hasan-emams-projects.vercel.app/users',userInfo)
             .then(res =>{
                 console.log(res.data);
                 navigate('/')

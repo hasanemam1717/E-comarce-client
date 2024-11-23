@@ -28,8 +28,8 @@ const Navbar = () => {
             <li>
               <h1 className="text-xl font-bold">Pages</h1>
               <ul className="p-2 flex flex-col gap-2">
-                <NavLink className=" font-semibold " to="/featuredProducts">
-                  Featured Products
+                <NavLink className=" font-semibold " to="/products">
+                 Products
                 </NavLink>
                 <NavLink className=" font-semibold " to="/testimonials">
                   Testimonials
@@ -56,8 +56,7 @@ const Navbar = () => {
           <NavLink className="text-xl font-semibold " to="/about">
             About
           </NavLink>
-          <NavLink className="text-xl font-semibold " to="/featuredProducts">
-            Featured Products
+          <NavLink className="text-xl font-semibold " to="/products"> Products
           </NavLink>
           <NavLink className="text-xl font-semibold " to="/testimonials">
             Testimonials

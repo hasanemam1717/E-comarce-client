@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayouts from "../Layouts/MainLayouts";
 import Home from "../Pages/Home/Home";
 import Testimonial from "../Pages/Testimonials/Testimonial";
-import FeaturedProducts from "../Pages/FeaturedProducts/FeaturedProducts";
 import Categories from "../Pages/Categories/Categories";
 import Contact from "../Pages/Contact/Contact";
 import Register from "../Pages/Authentication/Register";
@@ -13,6 +12,8 @@ import Dashboard from "../Dashboard/Dashboard";
 import DashCart from "../Dashboard/DashCart";
 import AllUser from "../Components/DashboardComponent/Seller/AllUser";
 import ManageUser from "../Dashboard/ManageUser";
+import PrivateRoute from "./PrivateRoute";
+import Products from "../Pages/Products";
 
 export const router = createBrowserRouter([
   {
@@ -32,8 +33,8 @@ export const router = createBrowserRouter([
         element: <Testimonial></Testimonial>,
       },
       {
-        path: "/featuredProducts",
-        element: <FeaturedProducts></FeaturedProducts>,
+        path: "/products",
+        element: <Products></Products>,
       },
       {
         path: "/categories",
@@ -59,7 +60,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: "/dashboard/cart",

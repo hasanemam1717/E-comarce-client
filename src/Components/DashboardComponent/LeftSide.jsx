@@ -2,11 +2,12 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { BiLogOut } from "react-icons/bi";
 import { FaHome, FaUser, FaUsers } from "react-icons/fa";
-import useAdmin from "../../Hooks/useAdinmin";
+// import useAdmin from "../../Hooks/useAdinmin";
 
 const LeftSide = () => {
-  const [isAdmin] = useAdmin();
-  console.log(isAdmin);
+  // const [isAdmin] = useAdmin();
+  // console.log(isAdmin);
+  const isAdmin = true;
   const { logOut } = useAuth();
   return (
     <div>
